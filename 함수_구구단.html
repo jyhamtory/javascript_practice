@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+      function gugudan(dan){
+        document.write("<h1>"+dan+"단</h1>");
+        
+        let result = 0;
+        let i = 1;
+
+        while(i<10){
+          result = dan * i;
+          document.write(dan + " X " + i + "=" + result + "</br>");
+          i++;
+        }
+        return;
+      }
+
+      gugudan(5);
+
+      x = prompt("구구단을 입력하세요!", "2");
+      gugudan(x);
+  </script>
+</body>
+</html>

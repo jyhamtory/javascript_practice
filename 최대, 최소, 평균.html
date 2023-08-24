@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let max = 0;
+    let min = 1000;
+    let avg = 0;
+    let sum = 0;
+
+    num = [1, 2, 3, 4];
+
+    for (let i = 0; i < num.length; i++) {
+      if(max < num[i]){
+        max = num[i];
+      }
+
+      if(min > num[i]){
+        min = num[i];
+      }
+      sum += num[i];
+    }
+    
+    avg = sum / num.length;
+    
+    document.write("[리스트: "+ num + "]<br><br>")
+
+    document.write("최대값: "+ max + "<br>")
+    document.write("최소값: "+ min + "<br>")
+    document.write("합계: "+ sum + "<br>")
+    document.write("평균값: "+ avg + "<br>")
+  </script>
+</body>
+
+</html>

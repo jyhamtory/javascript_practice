@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*1번 방법 if문*/
+    var num = prompt("숫자나 문자를 입력하세요", "0");
+
+    if (isNaN(num) == true) {
+      document.write(num + "은 문자입니다.");
+    }
+    else {
+      document.write(num + "은 숫자입니다.");
+    }
+
+
+    /*2번 방법: 삼항조건 연산자*/
+    var num = prompt("숫자나 문자를 입력하세요", "0");
+
+    var result = isNaN(num) == true ? num + "은 문자입니다." : num + "은 숫자입니다.";
+    document.write(result);
+
+    /*3번 방법: switch - case*/
+    var num = prompt("숫자나 문자를 입력하세요", "0");
+    switch (isNaN(num)) {
+      case true: result = num + "은 문자입니다.";
+        break;
+      case false: result = num + "은 숫자입니다.";
+        break;
+    }
+    document.write(result);
+
+  </script>
+</body>
+
+</html>

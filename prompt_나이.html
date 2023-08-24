@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*1번 방법: if문*/
+    var age = prompt("나이를 입력하세요", "1");
+
+    if (age >=20) {
+      document.write("성년");
+    } else{
+      document.write("미성년");
+    }
+    
+    /*2번 방법: 삼항 조건*/
+    var age = prompt("나이를 입력하세요", "1");
+    var result = age >= 20 ? "성년":"미성년";
+    document.write(result);
+
+    /*3번 방법: switch-case*/
+    var age = prompt("나이를 입력하세요", "1");
+    switch (age>=20){
+      case true : result = "성년";
+      break;
+
+      case false : result = "미성년";
+      break;
+    }
+    document.write(result);
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin:0;
+      padding:0;
+    }
+    #title {
+      padding: 30px 0;
+      text-align: center;
+    }
+
+    div{
+      width:500px;
+      height:200px;
+      margin:0 auto;
+      border: 1px solid #444;
+      border-radius: 20px;
+      display:flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+
+    #result {
+      font-weight: bold;
+      font-size:20px;
+    }
+
+    #btn {
+      padding:10px 30px;
+      background-color: #000;
+      border-radius: 10px;
+      color:#fff;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="title">오늘의 메뉴는?</h1>
+  <div id="box">
+    <p id="result">무얼 먹을까요?</p>
+    <button id="btn">메뉴 고르기</button>
+  </div>
+  <script>
+    var menu = ["한식", "중식", "일식", "찜/탕", "버거", "구이", "족발/보쌈", "치킨", "분식", "돈까스", "피자", "회/해물", "양식", "샌드위치"]
+
+    btn.onclick=function(){
+      var menu_index = Math.floor(Math.random()* menu.length);
+      var choice = menu[menu_index];
+      result.innerHTML = choice;
+    }
+
+  </script>
+</body>
+</html>
