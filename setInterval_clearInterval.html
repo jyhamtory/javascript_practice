@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+    }
+
+    #box {
+      width: 100%;
+      height: 600px;
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    button {
+      font-size: 16px;
+      font-weight: bold;
+      padding: 15px 60px;
+      background-color: #000;
+      color:#fff;
+      border:none;
+      cursor: pointer;
+      margin: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box">
+  </div>
+  <button id="stop_btn">STOP</button>
+  <script>
+    let i = 0;
+    let color = ["#614BC3", "#33BBC5", "#85E6C5", "#EBE76C", "#F0B86E", "#ED7B7B", "#836096"];
+
+    function change_bg() {
+      let color_index = Math.round(Math.random()* color.length);
+      box.style.backgroundColor = color[color_index];
+
+      if(i >= color.length){
+        i = 0;
+      }
+    }
+
+    let timer = setInterval(change_bg, 2000); /*2000밀리초 간격으로 change_bg 함수 실행*/ 
+
+    stop_btn.onclick = function(){
+      clearInterval(timer);  /*2000밀리초 간격으로 change_bg 함수 타이머 삭제*/
+    }
+
+
+
+  </script>
+</body>
+
+</html>

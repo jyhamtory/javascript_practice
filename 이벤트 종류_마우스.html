@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      display:flex;
+      flex-flow: column wrap;
+    }
+
+    div{
+      width:300px;
+      height:300px;
+      background-color: pink;
+      margin-bottom: 50px;
+      cursor:pointer;
+      text-align: center;
+      line-height: 300px;
+    }
+
+    #btn{
+      width:150px;
+      height:40px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <h3>mouseover / mouseout</h3>
+  <div id = "box_over"></div>
+
+  <button id="btn">remove Event</button>
+
+  <h3>mouseenter / mouseleave</h3>
+  <div id = "box_enter"></div>
+  
+  <h3>click / dblclick</h3>
+  <div id = "box_click"></div>
+
+
+
+
+  <script>
+
+        /*over과 enter의 차이점
+      over과 out은 자식 요소의 이벤트가 발생하면 최상위까지의 모든 부모 요소의 이벤트가 같이 발동함 ( = 이벤트 버블링 )
+      즉, 자식 요소를 부모요소와 독립적인 부분으로 봄
+
+      enter과 leave는 자식 요소의 이벤트가 발생해도 부모 요소의 이벤트는 발동 X 
+      즉, 자식 요소를 부모요소의 일부분으로 봄
+
+
+      클릭 이벤트 순서
+      클릭 이벤트에는 mousedown (마우스를 눌렀을 때), mouseup(마우스를 뗐을 때), click(클릭), dbleclick (더블클릭)이 있음
+      click 이벤트는 mousedown > mouseup > click 순으로 발동함
+      마우스를 누른 상태에서 이벤트 영역에서 벗어나 마우스를 떼면 mouseup과 click 이벤트가 발동하지 않음 
+
+      마찬가지로 dblclick 이벤트는 mousedown > mouseup > click > mousedown > mouseup > click 순으로 발동함
+
+      mousemove 
+      마우스가 이벤트 영역에서 움직이면 발동되는 이벤트.
+      1px이라도 움직이며 발동되기 때문에 사용 시 UI가 느려짐.
+      꼭 필요한 경우에만 사용!
+      */
+
+
+    box_over.addEventListener("mouseover", color_plum); /*마우스 올리면 plum*/
+    box_over.addEventListener("mouseout", color_powderblue); /*마우스 빠지면 powder_blue*/
+
+    box_enter.addEventListener("mouseenter", color_orange); /*마우스 올리면 orange*/
+    box_enter.addEventListener("mouseleave", color_yellow); /*마우스 빠지면 yellow*/
+
+    box_click.addEventListener("click", color_yellowgreen); /*클릭하면 yellowgreen*/
+    box_click.addEventListener("dblclick", color_palegreen); /*더블클릭하면 palegreen*/
+
+    function color_plum(){
+      box_over.style.backgroundColor = "plum";
+      box_over.innerHTML = "mouseover"
+    }
+
+    function color_powderblue(){
+      box_over.style.backgroundColor = "powderblue";
+      box_over.innerHTML = "mouseout"
+    }
+
+    function color_orange(){
+      box_enter.style.backgroundColor = "orange";
+      box_enter.innerHTML = "mouseenter"
+    }
+
+    function color_yellow(){
+      box_enter.style.backgroundColor = "yellow";
+      box_enter.innerHTML = "mouseleave"
+    }
+
+    function color_yellowgreen(){
+      box_click.style.backgroundColor = "yellowgreen";
+      box_click.innerHTML = "click"
+    }
+
+    function color_palegreen(){
+      box_click.style.backgroundColor = "palegreen";
+      box_click.innerHTML = "dblclick"
+    }
+
+    btn.onclick = function(){
+      box_over.removeEventListener("mouseover", color_plum);
+      box_over.removeEventListener("mouseout", color_powderblue);
+    }
+  </script>
+</body>
+</html>

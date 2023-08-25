@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Page Title</title>
+</head>
+
+<body>
+  <p id="title">로딩중</p>
+  <button id="btn1">로딩 멈추기</button>
+  <script>
+    let message = setTimeout(loading, 2000); /*2000밀리 초 뒤에 loading 함수 실행*/
+
+    function loading() {
+      title.innerHTML = "로딩 완료"
+    }
+
+    btn1.onclick = function () {
+      clearTimeout(message); /*setTimeout에서 설정한 타이머(2000밀리 초 뒤에 loading 함수 실행) 삭제 */
+    }
+  </script>
+</body>
+
+</html>

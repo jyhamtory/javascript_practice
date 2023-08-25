@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+</head>
+<body>
+
+<script>
+  var dan = parseInt(prompt("구구단을 외자!",""));
+  if (dan < 2 || dan > 9 || isNaN(dan) == true){
+    var check = true;
+  }
+
+  while(check){
+    alert("2~9의 범위로 다시 입력해주세요");
+    var dan = parseInt(prompt("구구단을 외자!",""));
+
+    if(dan >= 2 && dan <= 9 && isNaN(dan) == false){
+      check = false;
+    }
+  }
+
+  function gugudan(dan){
+    document.write("<h1>" + dan + "단</h1>");
+    for (var j = 1; j < 10; j++){
+      document.write(dan + " X " + j + "=" + dan * j + "<br>");
+    }
+  }
+
+  gugudan(dan);
+
+</script>
+</body>
+</html>

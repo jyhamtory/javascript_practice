@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    let score = [];
+    let numbering = parseInt(prompt("입력할 학생 수", "0"));
+    let input = function(){
+      var name = prompt("이름을 입력하세요", "홍길동");
+      var kor = Number(prompt("국어 점수를 입력하세요", "100"));
+      var eng = Number(prompt("영어 점수를 입력하세요", "100"));
+      var math = Number(prompt("수학 점수를 입력하세요","100"));
+
+      score.push(name);
+      score.push(kor);
+      score.push(eng);
+      score.push(math);
+    }
+
+    var i = 0;
+    while (i < numbering){
+      input();
+      i++;
+    }
+
+
+    var i = 0;
+    while (i < numbering) {
+      document.write("이름: " + score[i * 4] + "<br><br>");
+      document.write("국어: " + score[i * 4 + 1] + "점<br>");
+      document.write("영어: " + score[i * 4 + 2] + "점<br>");
+      document.write("수학: " + score[i * 4 + 3] + "점<br><br>");
+      document.write("합계: " + (score[i * 4 + 1] + score[i * 4 + 2] + score[i * 4 + 3]) + "점<br>");
+      document.write("합계: " + Math.round((score[i * 4 + 1] + score[i * 4 + 2] + score[i * 4 + 3])/3) + "점<br>");
+      document.write("<br><br><br><br><br>")
+      i++;
+    }
+  </script>
+</body>
+</html>

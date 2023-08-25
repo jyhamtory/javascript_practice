@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+
+    h1 {
+      font-size: 20px;
+    }
+
+    .min,
+    .max,
+    .avg {
+      width: 200px;
+      height: 50px;
+      border: 1px solid #666;
+      padding: 20px 0 0 20px;
+      margin: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    /*최대값*/
+    function f_max(arr) {
+      let max = 0;
+
+      for (let i = 0; i < arr.length; i++) {
+        if (max < arr[i]) {
+          max = arr[i];
+        }
+      }
+      return max;
+    }
+
+    /*최소값*/
+    function f_min(arr) {
+      let min = 1000;
+
+      for (i = 0; i < arr.length; i++) {
+        if (min > arr[i]) {
+          min = arr[i];
+        }
+      }
+      return min;
+    }
+
+    /*평균값*/
+    function f_avg(arr) {
+      let sum = 0;
+      let avg = 0;
+
+      for(i = 0; i < arr.length; i++){
+        sum += arr[i];
+      }
+      avg = sum / arr.length;
+      return avg;
+    }
+
+    /*최대, 최소, 평균값 가져오는 함수*/
+    function score(arr) {
+      value_max = f_max(arr);
+      value_min = f_min(arr);
+      value_avg = f_avg(arr);
+
+      document.write("<div class='max'>" + "최대값 = " + value_max + "</div>");
+      document.write("<div class='min'>" + "최소값 = " + value_min + "</div>");
+      document.write("<div class='avg'>" + "평균값 = " + value_avg + "</div>");
+
+      return;
+    }
+
+    let math_score = [];
+    let numbering = Number(prompt("학생 수를 입력하세요", "1"));
+
+    function input(){
+      let math = Number(prompt("수학 점수를 입력하세요", "0"));
+      math_score.push(math);
+    }
+
+    let i = 0;
+    while (i < numbering){
+      input();
+      i++;
+    }
+
+    document.write("<h1>수학점수 목록: " + math_score + "</h1><br>");
+    score(math_score);
+
+  </script>
+</body>
+
+</html>

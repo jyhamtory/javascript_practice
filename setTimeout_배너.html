@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    img {
+      width: 80%;
+      height: 80%;
+    }
+  </style>
+</head>
+
+<body>
+  <img src="img/banner/main_1.jpg" name="main_1">
+
+  <script>
+    var index = 0;
+    var imgs = new Array("img/banner/main_1.jpg", "img/banner/main_2.jpg", "img/banner/main_3.jpg");
+
+    setTimeout(progress, 2000);
+
+    function progress(){
+      document.images[0].src = imgs[index];
+      index++;
+      
+      setTimeout(progress, 2000);
+
+      if(index>imgs.length - 1){
+        index = 0;
+      }
+    }
+  </script>
+  </body>
+
+</html>
