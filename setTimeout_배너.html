@@ -14,24 +14,22 @@
 </head>
 
 <body>
-  <img src="img/banner/main_1.jpg" name="main_1">
-
+  <img src = "img/banner/main_1.jpg" name="banner">
+  
   <script>
-    var index = 0;
-    var imgs = new Array("img/banner/main_1.jpg", "img/banner/main_2.jpg", "img/banner/main_3.jpg");
+    let img_arr = ["img/banner/main_1.jpg","img/banner/main_2.jpg","img/banner/main_3.jpg"];
+    let index = 1;
 
-    setTimeout(progress, 2000);
-
-    function progress(){
-      document.images[0].src = imgs[index];
+    function banner(){
+      document["banner"].src = img_arr[index];
       index++;
-      
-      setTimeout(progress, 2000);
-
-      if(index>imgs.length - 1){
+      setTimeout(banner, 2000);
+      if(index >= img_arr.length){
         index = 0;
       }
     }
+
+    setTimeout(banner, 2000);
   </script>
   </body>
 

@@ -1,34 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-      img {
-        width:80%;
-        height:80%;
-      }
+    img {
+      width: 80%;
+      height: 80%;
+    }
   </style>
 </head>
+
 <body>
-  <img src="img/banner/main_1.jpg" name="main_1">
+  <img src="img/banner/main_1.jpg" name="main_banner">
   <script>
-    var image = document.getElementsByName("main_1"); 
-    var img_arr = ["img/banner/main_1.jpg","img/banner/main_2.jpg", "img/banner/main_3.jpg"];
-    var index = 0;
+    var img_arr = ["img/banner/main_1.jpg", "img/banner/main_2.jpg", "img/banner/main_3.jpg"];
+    var index = 1; //main_1부터 시작하면 main_1이 4초 동안 보이기 때문에 1부터 시작
 
-    function slide(){
-      document["main_1"].src = img_arr[index]; /*document["main_1"] >> document["name"] 즉, name을 부르는 명칭*/
+    function slide() {
+      document["main_banner"].src = img_arr[index]; //document["main_banner"] = document.getElementsByName("main_banner")[0]
       index++;
-
       if (index >= img_arr.length){
         index = 0;
       }
     }
 
-    setInterval(slide, 3000); 
-
+    setInterval(slide, 2000)
   </script>
 </body>
+
 </html>
