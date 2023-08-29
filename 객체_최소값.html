@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // //객체 - 최소값
+
+    // var ScoreMin = {
+    //   in_score: 0,
+    //   out_min_score: 100,
+
+    //   find_score: function (ele) {
+
+    //     this.in_score = ele;
+    //     for (var i = 0; i < this.in_score.length; i++) {
+    //       if (this.out_min_score > this.in_score[i])
+    //         this.out_min_score = this.in_score[i];
+    //     }
+    //     return this.out_min_score;
+    //   }
+    // };
+
+    // var o2 = ScoreMin.find_score([10, 30, 40]);
+    // document.write('min=' + o2 + "<br>");
+
+
+    // //함수객체 - 최소값
+
+    // function ScoreMin1() {
+    //   this.in_score = 0;
+    //   this.out_min_score = 100;
+
+    //   this.find_score = function (ele) {
+    //     this.in_score = ele;
+    //     for (var i = 0; i < this.in_score.length; i++) {
+    //       if (this.out_min_score > this.in_score[i])
+    //         this.out_min_score = this.in_score[i];
+    //     }
+    //     return this.out_min_score;
+    //   }
+    // };
+
+    // var o1 = new ScoreMin1();
+    // document.write('min=' + o1.find_score([30, 50, 60, 23]));
+
+
+    var Score_min = {
+      arr: 0,
+      min: 1000,
+      find: function(ele){
+        this.arr = ele;
+
+        for(i=0; i<this.arr.length; i++){
+          if(this.min > this.arr[i]){
+            this.min = this.arr[i];
+          }
+        }
+        return this.min;
+      }
+    }
+
+    arr = [10, 50, 30 , 5]; 
+    document.write("리스트: " + arr + "<br>")
+    document.write("리터럴 방식 최소값: "+Score_min.find(arr) + "<br>");
+
+    function Score_min1(){
+      this.arr = 0;
+      this.min = 1000;
+      this.find = function(ele){
+        this.arr = ele;
+
+        for(i=0; i<this.arr.length; i++){
+          if(this.min > this.arr[i]){
+            this.min = this.arr[i];
+          }
+        }
+        return this.min;
+      }
+    }
+
+    a = new Score_min1;
+    document.write("생성자 방식 최소값: " + a.find(arr));
+    
+  </script>
+</body>
+
+</html>

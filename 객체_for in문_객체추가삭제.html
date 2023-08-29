@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    // 1번 예제
+    var person = {
+      name: "메리",
+      age: 25,
+      color: "white"
+    }
+
+    for (key in person) {    //key 자리에는 아무 변수의 이름이 와도 상관 x 
+      document.write("속성: " + key + "<br> 속성 값: " + person[key] + "<br><br>");
+    }
+
+    // 2번 예제: 객체 안에 객체 
+
+    var animals = {
+      dogs: { "시루": 12, "모찌": 10, "초롱": 8 },
+      show: function () {
+        for (name in this.dogs) {
+          document.write("이름:" + name + "<br>나이: " + this.dogs[name] + "<br><br>");
+        }
+      }
+    }
+
+    document.write("-----------------<br>")
+    animals.show();
+
+    // 3번 예제: 객체 안에 객체 여러개 불러오기
+
+    var grades = {
+      group1: { "김별": 90, "이세린": 88, "윤채영": 85 },
+      group2: { "허채경": "농구", "이은성": "바이올린", "임지윤" : "수영"},
+      score: function(){
+        for(name in this.group1){
+          document.write("이름: " + name + "<br>점수: " + this.group1[name]+"<br><br>");
+        }
+      },
+      hobby: function(){
+        for(like in this.group2){
+          document.write("이름: " + like + "<br>취미: " + this.group2[like] + "<br><br>");
+        }
+      }
+    }
+    
+    document.write("-----------------<br>")
+    document.write("1조<br>")
+    grades.score();
+    document.write("-----------------<br>")
+    document.write("4조<br>")
+    grades.hobby();
+    document.write("-----------------<br>")
+
+
+    //4번 예제 : 객체 추가 및 삭제 
+    person["food"] = "치킨";
+    person.color = "하늘색";
+
+    for (key in person){
+      document.write("key: " + key + "<br>value: " + person[key] + "<br><br>");
+    }
+
+    document.write("---------delete color --------<br>")
+    delete person.color;  // delete person > 불가능! 객체는 삭제할 수 없음 
+
+    for (key in person){
+      document.write("key: " + key + "<br>value: " + person[key] + "<br><br>");
+    }
+
+  </script>
+</body>
+
+</html>

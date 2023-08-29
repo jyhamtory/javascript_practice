@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 400px;
+      height: 150px;
+      border: 1px solid #000;
+      margin-bottom: 30px;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    p {
+      margin: 15px 0 0 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <p>이름: <span id="info_name">AA</span></p>
+    <p>나이: <span id="info_age"></span></p>
+    <p><span id="info_introduce"></span></p>
+  </div>
+  <script>
+    // 객체 만들기: 리터럴 
+    let info = {
+      name: "홍길동",
+      age: 25,
+      introduce: function () {
+        return ("이름은 " + this.name + "이고, 나이는 " + this.age + "살입니다.");
+      }
+    }
+
+    info_name.innerHTML = info.name;
+    info_age.innerHTML = info["age"];
+    info_introduce.innerHTML = info.introduce();
+
+
+    // 리터럴 안에 함수형 객체: 빈 객체 만들기
+    let dog = {
+      name: "",
+      age: 0,
+      introduce: function (name, age) {
+        this.name = name;
+        this.age = age;
+
+        return ("우리집 강아지는 " + this.name + "이고, 나이는 " + this.age + "살이에요");
+      }
+    }
+
+    dog1 = dog.introduce("초롱이", 5);
+    document.write("<div><p>" + dog1 + "</p>");
+
+    dog2 = dog.introduce("샛별", 6);
+    document.write("<p>" + dog2 + "</p>");
+
+    dog2 = dog.introduce(6, "우주");
+    document.write("<p>" + dog2 + "</p></div>"); // 입력한 대로 들어감 >> 이름: 6, 나이: 우주로 출력 
+
+
+
+    //객체 만들기: Object 생성자 
+    let favorite = new Object(); // let favorite = {} 
+
+    favorite.food = "볶음밥";
+    favorite.dessert = "딸기 케이크";
+    favorite.say = function () {
+      return ("저는 " + this.food + "이랑 " + this.dessert + "를 좋아합니다")
+    }
+
+    document.write("<div><p> 좋아하는 음식: " + favorite.food + "</p>");
+    document.write("<p> 좋아하는 디저트: " + favorite.dessert + "</p>");
+    document.write("<p>" + favorite.say() + "</p></div>");
+
+
+    //생성자 함수 객체 만들기 (인스턴스, 대문자로 시작)
+    function Cat(name, age) {
+      this.name = name;
+      this.age = age;
+      this.introduce = function () {
+        return ("우리집 고양이는 " + this.name + "이고, 나이는 " + this.age + "살이에요")
+      }
+    }
+
+    cat1 = new Cat("해피", 8);
+    document.write("<div><p>" + cat1.introduce() + "</p>");
+
+    cat2 = new Cat("윤", 10);
+    document.write("<p>" + cat2.introduce() + "</p>");
+
+    cat3 = new Cat("토토", 3);
+    document.write("<p>" + cat3.introduce() + "</p></div>");
+
+
+  </script>
+</body>
+
+</html>

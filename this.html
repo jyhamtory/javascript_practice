@@ -6,6 +6,7 @@
   <title>Document</title>
 </head>
 <body>
+  
   <ul>
     <li id="a">딸기</li>
     <li id="b">바나나</li>
@@ -18,6 +19,11 @@
     <li id="f">수박</li>
   </ul>
   <script>
+    /*  객체: 속성(변수)과 메서드(함수)를 가진 데이터 
+        this: 객체 자기자신. 
+        event.target: 이벤트가 발생한 대상의 요소를 반환
+        함수에 매개변수가 없을 때는 event.target을 써주고 있을 경우 그 매개변수를 target 앞에 써야 함. (ex: function(a) > a.target) */
+
 
     /*클릭하면 배경색 나타남, 다른 요소를 클릭하면 배경색 사라짐*/
     this.onclick = function(x){
@@ -39,7 +45,6 @@
       if(x.target.id=="e"){e.style.backgroundColor="white";}
       if(x.target.id=="f"){f.style.backgroundColor="white";}
     }
-
 
 
   </script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    img{
+      width:400px;
+      height:300px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <h1><img src="img/animal/cat.jpg" id="photo_1" name="cat"></h1>
+  <h1><img src="img/animal/cat.jpg" id="photo_2" name="cat"></h1>
+  <script>
+
+    // 속성값 확인: 요소선택.getAttribute("속성명");
+    document.write(photo_1.src + "<br>"); //"file:///C:/0824/img/animal/cat.jpg"
+    document.write(photo_1.getAttribute("src") +"<br>"); //"img/animal/cat.jpg"
+    document.write(document.getElementsByTagName("img")[0].getAttribute("name") +"<br>"); //"cat"
+
+    // 속성값 변경: 요소선택.setAttribute("속성명", "변경값");
+    photo_2.src="img/animal/dog.jpg";  // src가 강아지 사진으로 변경
+    photo_2.setAttribute("name", "dog"); // name이 강아지로 변경
+    document.write(photo_2.getAttribute("name"));
+
+  </script>
+</body>
+</html>

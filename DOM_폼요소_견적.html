@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1><span id="name_place">ㅇㅇㅇ</span>님 전기 자동차 견적</h1>
+  <form name="form1">
+    <input type="checkbox" id="opt1" value="250000" onclick="cost()">
+    <label for="opt1">인조가죽세트 / 250000</label><br>
+    <input type="checkbox" id="opt2" value="350000" onclick="cost()">
+    <label for="opt2">네비게이션 / 350000</label><br>
+    <input type="checkbox" id="opt3" value="440000" onclick="cost()">
+    <label for="opt3">선루프 / 440000</label><br>
+
+    <h3>차량견적</h3>
+    <input name="total" id="total" value="0">
+  </form>
+
+  <script>
+    function cost() {
+      var car_cost = Number(total.defaultValue); //sum 역할 
+
+      for (var i = 1; i <= 3; i++) {
+        var option = document.getElementById("opt" + i);
+        if (option.checked) {
+          car_cost += Number(option.value)
+        };
+      }
+      total.value = car_cost;
+    }
+    
+
+    var name = "홍길동길동"; //이름
+
+    star = function(name){   // 이름 길이 - 1만큼 * 입력
+      stars = "";
+      for(i=0; i < name.length - 1; i++){
+        stars += "*"
+      }
+      return stars;
+    }
+
+    var f_name = name.substring(0,1);  //성 
+    var secret = star(name);           //이름
+    name_place.innerHTML = f_name + secret;
+  </script>
+</body>
+
+</html>
