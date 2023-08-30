@@ -9,47 +9,8 @@
 
 <body>
   <script>
-    // //객체 - 최소값
 
-    // var ScoreMin = {
-    //   in_score: 0,
-    //   out_min_score: 100,
-
-    //   find_score: function (ele) {
-
-    //     this.in_score = ele;
-    //     for (var i = 0; i < this.in_score.length; i++) {
-    //       if (this.out_min_score > this.in_score[i])
-    //         this.out_min_score = this.in_score[i];
-    //     }
-    //     return this.out_min_score;
-    //   }
-    // };
-
-    // var o2 = ScoreMin.find_score([10, 30, 40]);
-    // document.write('min=' + o2 + "<br>");
-
-
-    // //함수객체 - 최소값
-
-    // function ScoreMin1() {
-    //   this.in_score = 0;
-    //   this.out_min_score = 100;
-
-    //   this.find_score = function (ele) {
-    //     this.in_score = ele;
-    //     for (var i = 0; i < this.in_score.length; i++) {
-    //       if (this.out_min_score > this.in_score[i])
-    //         this.out_min_score = this.in_score[i];
-    //     }
-    //     return this.out_min_score;
-    //   }
-    // };
-
-    // var o1 = new ScoreMin1();
-    // document.write('min=' + o1.find_score([30, 50, 60, 23]));
-
-
+    // 객체 최소값
     var Score_min = {
       arr: 0,
       min: 1000,
@@ -69,6 +30,8 @@
     document.write("리스트: " + arr + "<br>")
     document.write("리터럴 방식 최소값: "+Score_min.find(arr) + "<br>");
 
+
+    //함수형 객체 최소값
     function Score_min1(){
       this.arr = 0;
       this.min = 1000;

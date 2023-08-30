@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #wrap {
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #btn_box {
+      width: 300px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    #info_wrap {
+      width: 300px;
+      height: 100px;
+      background-color: #eee;
+      overflow: hidden;
+      text-align: center;
+      line-height: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- html에서 window.open <a href="javascript:void(window.open('주소', '팝업 이름','속성'))"></a>-->
+  <div id="wrap">
+    <h1>운영체제 및 스크린 정보</h1>
+    <p id="info_wrap"></p>
+    <div id="btn_box">
+      <button onclick="info1();">운영체제 정보</button> <br />
+      <button onclick="info2();">스크린 정보</button> <br />
+      <button onclick="myFunction()">윈도우 팝업</button>
+    </div>
+  </div>
+
+  <script>
+    /*BOM: Browser Object Model
+      window: 브라우저창 객체, BOM의 최상위 객체
+      location: 주소표시줄 객체
+      screen: 운영체제 화면 객체
+      history: 방문기록 객체
+      navigator: 브라우저 정보 객체
+      document: 문서객체, DOM */
+
+    function myFunction() { //window.open은 보통 팝업창에서 사용, setTimeout(window.open)
+      window.open("https://www.naver.com", "_blank", "toolbar=yes, top=500, left=500, width=400, height=400");
+      setTimeout('window.open("https://www.google.co.kr/", "_blank", "toolbar=no, top=500, left=700, width=400, height=400")', 2000); //2초 뒤에 나타남
+    }
+
+    function info1() {
+      var os = navigator.userAgent.toLowerCase(); //userAgent: OS, 웹브라우저. 기기정보 등의 사용자 식별 정보 , toLowerCase: 소문자로 변경
+      var info_wrap = document.getElementById("info_wrap");
+
+      if (os.indexOf("windows") >= 0) {  //문자열에서 특정 문자열을 찾고, 그 문자열이 처음 나타난 위치 index를 리턴, 문자열이 없을 경우 -1 리턴.
+        info_wrap.innerHTML = "윈도우";
+      } else if (os.indexOf("macintosh") >= 0) {
+        info_wrap.innerHTML = "메킨토시";
+      } else if (os.indexOf("iphone") >= 0) {
+        info_wrap.innerHTML = "아이폰";
+      } else if (os.indexOf("android") >= 0) {
+        info_wrap.innerHTML = "안드로이드";
+      }
+
+      setTimeout("info_wrap.innerHTML = ''", 3000);
+
+    }
+
+    function info2() {
+      var screen_w = screen.width;  // 모니터(스크린) 길이
+      var screen_h = screen.height; // 모니터(스크린) 높이 
+      var info_wrap = document.getElementById("info_wrap");
+      info_wrap.innerHTML = screen_w + ' X ' + screen_h;
+
+      setTimeout("info_wrap.innerHTML = ''", 3000);
+    }
+  </script>
+</body>
+
+</html>

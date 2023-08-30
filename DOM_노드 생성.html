@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button onclick = "create_button()">Create Button</button>
+  <button onclick = "create_text()">Create Text</button>
+  <button id="create_img">Create Image</button>
+  <script>
+
+    /*createElement("tag name"): 지정한 tag name의 HTML 요소 생성
+      createTextNode("text"): 텍스트 노드 생성
+
+      document.body.appendChild(tag name): 지정한 tag name의 HTML 요소를 body에 추가
+      parent tag name.appendChild(tag name): 해당 부모 태그 안에 HTML 요소 추가 */
+
+    function create_button(){
+      var br = document.createElement("br");
+      var btn = document.createElement("button");
+      var text = document.createTextNode("hello World!");
+      document.body.appendChild(br);  // body에 br 태그 추가 
+      btn.appendChild(text);          // btn (button)안에 텍스트 노드 추가
+      document.body.appendChild(btn); // body에 btn(button) 태그 추가 
+    }
+
+    function create_text(){
+      var h1 = document.createElement("h1");
+      var text = document.createTextNode("hello World!");
+      h1.appendChild(text);
+      document.body.appendChild(h1);
+    }
+    
+    create_img.addEventListener("click", (e) => {
+      var img = document.createElement("img");
+      var br = document.createElement("br");
+      img.setAttribute("src", "img/animal/cat.jpg");
+      img.setAttribute("width", "500px");
+      document.body.appendChild(br);
+      document.body.appendChild(img);
+    })
+  </script>
+</body>
+</html>

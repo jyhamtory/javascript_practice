@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var num = 2.1234;
+    var maxNum = Math.max(10, 5, 8, 30); //30  최대값 
+    var minNum = Math.min(10, 5, 8, 30); //5  최솟값
+    var roundNum = Math.round(num); //2  반올림
+    var floorNum = Math.floor(num); //2  소수점 내림 
+    var ceilNum = Math.ceil(num);   //3  소수점 올림
+    var randomNum = Math.random();  // 0 ~ 1 사이 난수 발생
+    var piNum = Math.PI; //원주율 상수 반환
+
+    document.write(maxNum +"<br>");
+    document.write(minNum + "<br>");
+    document.write(roundNum + "<br>");
+    document.write(floorNum + "<br>");
+    document.write(ceilNum + "<br>");
+    document.write(randomNum + "<br>");
+    document.write(piNum + "<br>");
+
+    /*Math.random 범위:  Math.floor(Math.random() * (최댓값 - 최솟값 + 1)) + 최솟값*/
+    var rand_1 = Math.random() * 10 //0 ~ 9까지의 난수 
+    var rand_2 = Math.floor(Math.random() * 10) // 0 ~ 9까지의 정수 
+    var rand_3 = Math.floor(Math.random() * 31) + 120 // 120 ~ 150까지의 정수
+    document.write(rand_1 + "<br>") 
+    document.write(rand_2 + "<br>") 
+    document.write(rand_3 + "<br>") 
+  </script>
+</body>
+
+</html>

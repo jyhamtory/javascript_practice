@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //Date Object: 날짜 정보 객체
+    /*날짜 정보 가져오기: get  > 숫자로 가져옴
+
+      getFullYear(): 연도 정보
+      getMonth(): 월 정보 (0 ~ 11까지. 즉, 8월이면 7 출력);
+      getDate() : 일 정보
+      getDay()  : 요일 정보
+      getHour() : 시 /  getMinutes() : 분 /  getSeconds(): 초  /  getMilliseconds(): 밀리초
+      getTime() : 1970년부터 경과된 시간을 밀리초로 표기
+      toGMTString(): GMT 표준 표기 방식으로 문자형 데이터 반환
+      toLocaleString(): 운영 시스템 표기 방식으로 문자형 데이터 반환
+      날짜 수정은 get을 set으로 변경하면 됨 (ex: setFullYear: 연도만 수정 )
+
+      남은 일수계산: (특정 날짜 객체 - 현재 날짜 객체) / (1000 * 60 * 60 * 24)
+
+      특정 날짜 객체 - 현재 날짜 객체  >> 특정 날짜 객체까지 남은 시간이 밀리 초로 출력됨.
+      따라서 밀리초를 일수로 환산하기 위해 1000 * 60 * 60 * 24 으로 나누어 주어야 함. 
+    */
+
+    var t = new Date(); //내장객체 Date는 무조건 new(생성자) 사용
+
+    var nowMonth = t.getMonth(); //월
+    var nowDate = t.getDate();   //일
+    var nowDay = t.getDay();    //요일
+
+    document.write("현재 월: " + nowMonth + "<br>");
+    document.write("현재 일: " + nowDate + "<br>");
+    document.write("현재 요일: " + nowDay + "<br>");
+
+
+    //new Date에 데이터 넣고 생성
+    var m = new Date(2002, 4, 31);
+    var theMonth = m.getMonth();
+    var theDate = m.getDate();
+    var theDay = m.getDay();
+
+    document.write("2002 월드컵은 몇 월: " + theMonth + "<br>");
+    document.write("2002 월드컵은 며칠: " + theDate + "<br>");
+    document.write("2002 월드컵은 무슨 요일: " + theDay + "<br>");
+
+
+    // 남은 날짜 출력 
+    var today = new Date();
+    var lastDay = new Date(2023,11,31); // 기준일 (2023.12.31)
+    var diffDate = lastDay - today;
+
+    var result = Math.ceil (diffDate / (60 * 1000 * 60 * 24)); //Math.ceil > 소수점 올림
+    document.write("2023년 마지막 날까지 남은 일수: " + diffDate + "일");
+  </script>
+</body>
+
+</html>
