@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    //string > number 
+    a = "3.14";
+    document.write("a = " + a + "<br>");
+    document.write("type: ", typeof(a) + "<br><br>");
+    a *= 1;
+    document.write("a *= 1로 형변환 <br>");
+    document.write("type: ", typeof(a) + "<br><br><br>");
+
+    b = "3";
+    document.write("b = " + b + "<br>");
+    document.write("type: ", typeof(b) + "<br><br>");
+    b = Number(b);
+    document.write("b = Number(b)로 형변환 <br>");
+    document.write("type: ", typeof(b) + "<br><br><br>");
+    
+    //number > string
+    c = 369;
+    document.write("c = " + c + "<br>");
+    document.write("type: ", typeof(c) + "<br><br>");
+    c += "";
+    document.write('c += ""로 형변환 <br>');
+    document.write("type: ", typeof(c) + "<br><br><br>");
+
+    d = 246;
+    document.write("d = " + d + "<br>");
+    document.write("type: ", typeof(d) + "<br><br>");
+    d = String(d);
+    document.write('d = String(d)로 형변환 <br>');
+    document.write("type: ", typeof(d) + "<br>");
+    
+    //외에도 parseInt(), perseFloat(), .toString()을 사용해 형변환 가능
+    
+    /*parseInt, perseFloat, Number의 차이 
+      parseInt: 정수로 형변환, 옵션을 통해 2 ~ 36진수까지 정의 가능. 뒤에 문자가 붙어있어도 정수만 가져옴. 앞에 붙어있을 경우 형 변환 X (ex: 2020년도 > 2020  / 약200년 전 > NaN)
+      perseFloat: 실수로 형변환
+      Number: 문자열 전체가 숫자라면 소수점까지 number 타입으로 형 변환. 문자가 붙어있으면 NaN가 뜸. 
+      
+      toString과 String의 차이 
+      .toString: null, undefined일 경우 형변환 오류 발생, toString(n)에서 n에 숫자를 넣으면 진수 변환이됨. parseInt마찬가지로 2 ~ 36진수까지 가능.
+      String: 어떤 형태이든 문자로 형 변환*/
+  </script>
+</body>
+
+</html>

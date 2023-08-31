@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //정규표현객체: 입력받은 데이터가 규칙에 맞는지 파악하기 위해 사용
+
+    //정규표현 검색 옵션
+    /*  +: 1회이상 일치하는 문자 매칭 (1회 이상 반복)
+        *: 0회이상 일치하는 문자 매칭 (0회 이상 반복)
+        ?: 0 또는 1개의 문자 매칭 
+        .: 정확히 1개 문자 매칭 
+        i: 찾는 문자의 대소문자 무시 
+        g: 규칙에 맞는 모든 문자 찾기
+        m: 여러 줄 매칭  
+        ^: 문자열의 시작, 또는 부정(NOT)
+        $: 문자열의 끝
+        []: 범위 지정
+        {}: 반복횟수 (글자 길이)
+        | : 또는 
+        \d: 숫자 
+        \D: 숫자가 아닌 문자
+        \s: 스페이스(공백문자)
+        \w: 알파벳, 숫자, 밑줄기호 
+        \W: 알파벳, 숫자, 밑줄기호를 제외한 문자 
+        */
+
+
+    // 예제 1번
+    var str = "Html Css Jquery";
+
+    var reg1 = /css/;                 // var reg1 = new RegExp("css");
+    var result_1 = reg1.test(str);    // 지정한 패턴에 맞는 단어가 있으면 true
+    document.write(result_1, "<br>"); // false   > str은 Css이므로 패턴(css)과 대소문자 불일치, 따라서 false 
+
+    var reg2 = /css/i;                // var reg2 = new RegExp("css", "i");   i = 대소문자 구분 X 
+    var result_2 = reg2.test(str);
+    document.write(result_2, "<br>"); // TRUE    > 패턴은 위와 동일하나, 검색옵션을 대소문자 무시로 설정했기 때문에 true
+
+
+    // 예제 2번
+    var userName = prompt("당신의 이름은?");
+    reg1 = /^[가-힣]{2,5}$/;     // 2글자에서 5글자 사이의 한글. 한글 앞뒤, 중간에 다른 문자가 들어가면 안됨. 
+
+    while (true) {
+      if (reg1.test(userName)) break;  // reg1이 충족하면 (true) while문에서 나오기
+      alert("이름 형식이 잘못되었습니다!"); // 아니면 경고창 + prompt 무한 반복
+      userName = prompt("당신의 이름은?");
+    }
+
+    var userCell = prompt("당신의 전화번호는?");
+    reg2 = /^(010|016|011)\d{3,4}\d{4}$/; // ^(010|016|011): 010, 016, 011 중 하나    d{3,4}: 3-4개의 숫자     d{4}: 4개의 숫자
+
+    while (true) {
+      if (reg2.test(userCell)) break;
+      alert("전화번호 형식이 잘못되었습니다!");
+      userCell = prompt("당신의 전화번호는?");
+    }
+
+    var userEmail = prompt("당신의 이메일주소는?"); // ex: abcde@naver.com /  abcde@company.co.kr
+    /*  \w{5,12}: 알파벳, 숫자, 밑줄기호를 포함해서 5~12글자의 문자열  (abcde 부분)
+        @: @포함
+        [a-z]{2,10}: 알파벳 2~10글자 (naver, company 부분)
+        [\.]: .포함 
+        [a-z]{2,3}: 알파벳 2~3글자 (com, co 부분)
+        [\.]?: .포함 또는 불포함
+        [a-z]{0,2}: 알파벳 0~2글자 (kr부분) */
+
+    reg3 = /^\w{5,12}@[a-z]{2,10}[\.][a-z]{2,3}[\.]?[a-z]{0,2}$/;
+
+    while (true) {
+      if (reg3.test(userEmail)) break;
+      alert("이메일 형식이 잘못되었습니다!");
+      userEmail = prompt("당신의 이메일 주소는?");
+    }
+  </script>
+</body>
+
+</html>

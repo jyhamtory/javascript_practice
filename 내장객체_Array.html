@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
   <script>
     //배열 생성 
@@ -18,7 +20,7 @@
 
     //배열 크기
     var arr = [1, 2, 3, 4, 5];
-    document.write("배열의 길이는: " + arr.length +"<br>");
+    document.write("배열의 길이는: " + arr.length + "<br>");
 
 
 
@@ -50,7 +52,7 @@
     document.write(arr + "<br>");       // A,B,C,D
 
     //2. shift: 맨 앞의 값 삭제
-    var arr = ["가","가","나","다","라","마"];
+    var arr = ["가", "가", "나", "다", "라", "마"];
     arr.shift();
     document.write(arr + "<br>")        // 가,나,다,라,마
 
@@ -105,8 +107,9 @@
     //배열 자르기: 배열명.slice(시작 인덱스, 마지막 인덱스 + 1)
     var arr = ["서울", "대전", "대구", "부산", "울산", "광주"];
     document.write(arr.slice(1) + "<br>");     // 대전, 대구, 부산, 울산, 광주   1번 인덱스 ~ 끝까지 자르기
-    document.write(arr.slice(1,4) + "<br>");   // 대전, 대구, 부산   1번 인덱스 ~ 3번 인덱스
+    document.write(arr.slice(1, 4) + "<br>");   // 대전, 대구, 부산   1번 인덱스 ~ 3번 인덱스
     document.write(arr + "<br>");              // 원본 배열은 변경되지 않음
   </script>
 </body>
+
 </html>

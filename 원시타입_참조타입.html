@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 원시타입: 데이터의 값을 복사 (String, Number, Boolean, Null, Undefined)
+    // Boolean: 0, NaN, ""(빈문자열), undefined, null은 false, 나머지는 true
+    var str1 = "Hello";
+    var str2 = str1;
+    document.write(str2 +"<br>");  // "Hello"
+    var str1 = "GoodBye";
+    document.write(str1 +"<br>");  // "GoodBye"
+    document.write(str2 +"<br>");  // "Hello"  >> 값만 복사하기 때문에 변경된 값이 적용되지 않음.
+    
+    // 참조타입: 데이터의 주소를 복사 (Object, Array, Function, RegExp)
+    var obj1 = {str: "Hello"};
+    var obj2 = obj1;
+    document.write(obj2.str + "<br>");  //"Hello"
+    obj1.str = "Goodbye";
+    document.write(obj1.str + "<br>");  //"Goodbye"
+    document.write(obj2.str + "<br>");  //"Goodbye"  >> 객체에 저장된 값은 객체가 있는 주소를 가리키기 때문에 변경된 값이 적용됨 
+  </script>
+</body>
+
+</html>

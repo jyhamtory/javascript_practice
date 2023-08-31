@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 450px;
+      height: 280px;
+      background-color: #eee;
+      box-sizing: border-box;
+      padding: 20px;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>계산서</h1>
+  <script>
+    function StrawberryLatte(count) {
+      this.count = count;
+      this.price = this.count * 4600;
+      this.say = function () {
+        document.write("딸기라떼 " + this.count + "잔 " + this.price + "원 입니다.<br>");
+      };
+    }
+
+    function Americano(count) {
+      this.count = count;
+      this.price = this.count * 3000;
+      this.say = function () {
+        document.write("아메리카노 " + this.count + "잔 " + this.price + "원 입니다.<br>");
+      };
+    }
+
+    function CheeseCake(count) {
+      this.count = count;
+      this.price = this.count * 5000;
+      this.say = function () {
+        document.write("치즈케이크 " + this.count + "개 " + this.price + "원 입니다.<br>");
+      };
+    }
+
+    cafe_orders = []
+
+    function input() {
+      name = (prompt("고객님 성함 말씀해주세요", "홍길동"));
+      var count_s = parseInt(prompt("딸기라떼 몇 잔 주문하시겠습니까? ", "1"));
+      cafe_orders.push(count_s);
+      var count_a = parseInt(prompt("아메리카노 몇 잔 주문하시겠습니까? ", "1"));
+      cafe_orders.push(count_a);
+      var count_c = parseInt(prompt("치즈 케이크 몇 개 주문하시겠습니까? ", "1"));
+      cafe_orders.push(count_c);
+    }
+
+    function order_say() {
+      input();
+
+      order_s = new StrawberryLatte([cafe_orders[0]]);
+      order_a = new Americano([cafe_orders[1]]);
+      order_c = new CheeseCake([cafe_orders[2]]);
+
+      order_s.say();
+      order_a.say();
+      order_c.say();
+    }
+
+    function sum() {
+      var sum = order_s.price + order_a.price + order_c.price;
+      var sum_str = new String(sum).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      return sum_str;
+    }
+
+    function total() {
+      document.write("<div><h3>" + name.charAt(0) + "** 고객님 주문내역 </h3>");
+      document.write("<p>딸기라떼: " + order_s.count + " 잔<p>");
+      document.write("<p>아메리카노: " + order_a.count + " 잔<p>");
+      document.write("<p>치즈케이크: " + order_c.count + " 개<p>");
+      document.write("------------------------- TOTAL ------------------------- ");
+      document.write("<p>총 지불 금액: " + sum() + "원 입니다.<p></div>");
+    }
+
+    order_say();
+    total();
+
+  </script>
+</body>
+
+</html>

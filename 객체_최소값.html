@@ -14,11 +14,11 @@
     var Score_min = {
       arr: 0,
       min: 1000,
-      find: function(ele){
+      find: function (ele) {
         this.arr = ele;
 
-        for(i=0; i<this.arr.length; i++){
-          if(this.min > this.arr[i]){
+        for (i = 0; i < this.arr.length; i++) {
+          if (this.min > this.arr[i]) {
             this.min = this.arr[i];
           }
         }
@@ -26,20 +26,20 @@
       }
     }
 
-    arr = [10, 50, 30 , 5]; 
+    arr = [10, 50, 30, 5];
     document.write("리스트: " + arr + "<br>")
-    document.write("리터럴 방식 최소값: "+Score_min.find(arr) + "<br>");
+    document.write("리터럴 방식 최소값: " + Score_min.find(arr) + "<br>");
 
 
     //함수형 객체 최소값
-    function Score_min1(){
+    function Score_min1() {
       this.arr = 0;
       this.min = 1000;
-      this.find = function(ele){
+      this.find = function (ele) {
         this.arr = ele;
 
-        for(i=0; i<this.arr.length; i++){
-          if(this.min > this.arr[i]){
+        for (i = 0; i < this.arr.length; i++) {
+          if (this.min > this.arr[i]) {
             this.min = this.arr[i];
           }
         }
@@ -49,7 +49,7 @@
 
     a = new Score_min1;
     document.write("생성자 방식 최소값: " + a.find(arr));
-    
+
   </script>
 </body>
 

@@ -19,30 +19,38 @@
     var str4 = new String("A");
     var str5 = new String("     hello      ");
 
+    document.write("<h1> 메서드 및 속성 </h1>");
 
     //메서드 및 속성
-    str_1 = str2.charAt(1);         // e   문자열에서 인덱스 번호에 해당하는 문자 반환
-    str_2 = str2.indexOf("!", 6);   // 12  왼쪽에서부터 특정 문자열을 찾고, 그 문자열이 처음 나타난 위치 index를 리턴, 시작 위치 지정 가능
-    str_3 = str2.indexOf("Hello");  //-1   문자열이 없을 경우 -1 리턴 , 대소문자를 구분하기 때문에 -1 리턴, 시작 위치 지정 가능
-    str_4 = str2.lastIndexOf("!");  //-1   오른쪽에서부터 특정 문자열을 찾고, 그 문자열의 위치 index를 리턴
-    str_5 = str2.match("Good");     //Null 왼쪽에서부터 특정 문자열과 일치하는 문자를 찾아 최초로 찾은 문자를 반환, 없으면 Null
-    str_6 = str2.replace("hello", "Hello");
-    str_7 = str2.search("!");       // 5    왼쪽에서부터 특정 문자열을 찾고 그 문자열이 처음 나타난 위치 index를 리턴, 보통 정규식과 함께 사용, 시작 위치 지정 불가
-    str_8 = str2.slice(0, 5);        // hello 0부터 5번 index 전까지(0 ~ 4)의 문자열 반환.  
-    str_9 = str2.slice(3, -3);      // lo! hello! This is JavaScr  -3은 뒤에서부터 3번째 index를 말함. 뒤에서 부터 셀 때는 0이 아닌 -1부터 시작.
-    str_10 = str2.substring(0, 5);   // 5     0부터 5번 index 전까지(0 ~ 4)의 문자열 반환. substring(0,5) = substring(5,0)  
-    str_11 = str2.substring(3, -3);  // hel  substring은 -를 모두 0을 봄. 따라서 0부터 3 이전까지의 문자열 반환
-    str_12 = str2.substr(7, 5);       // hello 7번 index부터 5개의 문자열을 반환
-    str_13 = str3.split("-");        // ["010", "1234", "5678"] 입력한 문자열을 기준으로 문자열을 나눠 배열에 저장
-    str_14 = str1.toLowerCase();     // hello  문자열을 모두 소문자로 
-    str_15 = str1.toUpperCase();     // HELLO  문자열을 모두 대문자로 
-    str_16 = str1.length();          // 5      문자열의 길이 반환
-    str_17 = str1.concat(" world");  // hello world 문자열 결합
-    str_18 = str4.charCodeAt();      // 65     A의 아스키 코드인 65 출력
-    str_19 = String.fromCharCode(65);// A      65번 아스키 코드 A 출력
-    str_20 = str5.trim();            // hello  앞뒤 공백 제거
-    
 
+    // 문자열을 찾고 인덱스 반환: indexOf & lastindexOf & search
+    document.write(str2.indexOf("!", 6) + "<br>");   // 12  왼쪽에서부터 특정 문자열을 찾고, 그 문자열이 처음 나타난 위치 index를 리턴, 시작 위치 지정 가능
+    document.write(str2.indexOf("Hello") + "<br>");  //-1   왼쪽에서부터 특정 문자열을 찾고, 문자열이 없을 경우 -1 리턴 , 대소문자를 구분하기 때문에 -1 리턴, 시작 위치 지정 가능
+    document.write(str2.lastIndexOf("!") + "<br>");  //-1   오른쪽에서부터 특정 문자열을 찾고, 그 문자열의 위치 index를 리턴
+    document.write(str2.search("!") + "<br>");       // 5   왼쪽에서부터 특정 문자열을 찾고 그 문자열이 처음 나타난 위치 index를 리턴, 보통 정규식과 함께 사용, 시작 위치 지정 불가
+
+    // 문자열을 찾고 문자열로 반환: match
+    document.write(str2.match("h") + "<br>");        //h    왼쪽에서부터 특정 문자열과 일치하는 문자를 찾아 최초로 찾은 문자를 반환, 없으면 Null
+    document.write(str2.match("Good") + "<br>");     //Null 왼쪽에서부터 특정 문자열과 일치하는 문자를 찾아 최초로 찾은 문자를 반환, 없으면 Null
+
+    // 인덱스 범위에 해당하는 문자열 반환: charAt & slice & subString & substr 
+    document.write(str2.charAt(1) + "<br>");        // e   문자열에서 인덱스 번호에 해당하는 문자 반환 (딱 1개만 )
+    document.write(str2.slice(0, 5) + "<br>");       // hello 0부터 5번 index 전까지(0 ~ 4)의 문자열 반환.  
+    document.write(str2.slice(3, -3) + "<br>");      // lo! hello! This is JavaScr  -3은 뒤에서부터 3번째 index를 말함. 뒤에서 부터 셀 때는 0이 아닌 -1부터 시작.
+    document.write(str2.substring(0, 5 + "<br>"));   // 5     0부터 5번 index 전까지(0 ~ 4)의 문자열 반환. substring(0,5) = substring(5,0)  
+    document.write(str2.substring(3, -3) + "<br>");  // hel  substring은 -를 모두 0을 봄. 따라서 0부터 3 이전까지의 문자열 반환
+    document.write(str2.substr(7, 5) + "<br>");      // hello 7번 index부터 5개의 문자열을 반환
+
+    // 그 외 문자열 메서드
+    document.write(str3.split("-") + "<br>");        // ["010", "1234", "5678"] 입력한 문자열을 기준으로 문자열을 나눠 배열에 저장
+    document.write(str1.toUpperCase() + "<br>");     // HELLO  문자열을 모두 대문자로 
+    document.write(str1.toLowerCase() + "<br>");     // hello  문자열을 모두 소문자로
+    document.write(str4.charCodeAt() + "<br>");      // 65     A의 아스키 코드인 65 출력
+    document.write(String.fromCharCode(65) + "<br>");// A      65번 아스키 코드 A 출력
+    document.write(str1.length() + "<br>");          // 5      문자열의 길이 반환
+    document.write(str1.concat(" world") + "<br>");  // hello world 문자열 결합
+    document.write(str5.trim() + "<br>");            // hello  앞뒤 공백 제거
+    document.write(str2.replace("hello", "Hello") + "<br>");  // 왼쪽에서부터 특정 문자열과 일치하는 문자를 찾아 바꿀 문자열로 변경 
 
     // replace: 정규표현식
     // g: 전체 모든 문자열 변경 (global);
@@ -56,6 +64,7 @@
     //여러 문자 변환
     re_3 = str2.replace(/h|This/gi, function myFunction(x) { return x.toUpperCase(); }) //h, This를 대문자로 변경 
     document.write(re_3);
+
   </script>
 </body>
 
